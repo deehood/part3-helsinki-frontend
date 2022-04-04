@@ -57,6 +57,9 @@ const App = () => {
     const handleSubmitName = (event) => {
         event.preventDefault();
 
+        if (newName.trim() === "" || newNumber.trim() === "")
+            return handleNotification("Field missing ...", true);
+
         const personObj = {
             name: newName.trim(),
             number: newNumber.trim(),
@@ -110,17 +113,12 @@ const App = () => {
     };
 
     return (
-        <div className="wrap">
+        <div>
             <h2>Phonebook</h2>
-
             {message !== null ? (
-                <Notification
-                    className="message"
-                    message={message}
-                    isError={isError}
-                />
+                <Notification message={message} isError={isError} />
             ) : null}
-
+            <br /> <br />
             <Filter filter={filter} handleFilter={handleFilter} />
             <h3>Add a new Person</h3>
             <PersonForm

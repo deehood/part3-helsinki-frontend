@@ -1,15 +1,12 @@
 body {
     padding: 0;
-}
-
-.wrap {
-    position: absolute;
+    background-color: bisque;
 }
 
 .message {
-    position: relative;
-    top: 5rem;
-
+    width: 100vw;
+    position: absolute;
+    top: 4rem;
     border-style: solid;
     padding: 0.5rem;
     background-color: #ccc;
