@@ -1,8 +1,8 @@
 const Notification = ({ message, isError }) =>
-  isError ? (
-    <div className="message errorMessage">{message}</div>
-  ) : (
-    <div className="message normalMessage">{message}</div>
-  );
+    isError ? (
+        <div className="errorMessage">{message}</div>
+    ) : (
+        <div className="normalMessage">{message}</div>
+    );
 
 export default Notification;

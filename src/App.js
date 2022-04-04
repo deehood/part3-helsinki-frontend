@@ -110,15 +110,19 @@ const App = () => {
     };
 
     return (
-        <div>
+        <div className="wrap">
             <h2>Phonebook</h2>
 
             {message !== null ? (
-                <Notification message={message} isError={isError} />
+                <Notification
+                    className="message"
+                    message={message}
+                    isError={isError}
+                />
             ) : null}
 
             <Filter filter={filter} handleFilter={handleFilter} />
-            <h3>Add a new</h3>
+            <h3>Add a new Person</h3>
             <PersonForm
                 newName={newName}
                 newNumber={newNumber}

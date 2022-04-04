@@ -1,20 +1,27 @@
 body {
-  padding: 0;
+    padding: 0;
+}
+
+.wrap {
+    position: absolute;
 }
 
 .message {
-  border-style: solid;
-  padding: 0.5rem;
-  background-color: #ccc;
-  margin-bottom: 0.5rem;
+    position: relative;
+    top: 5rem;
+
+    border-style: solid;
+    padding: 0.5rem;
+    background-color: #ccc;
+    margin-bottom: 0.5rem;
 }
 
 .normalMessage {
-  border-color: darkgreen;
-  color: darkgreen;
+    border-color: darkgreen;
+    color: darkgreen;
 }
 
 .errorMessage {
-  border-color: darkred;
-  color: darkred;
+    border-color: darkred;
+    color: darkred;
 }
