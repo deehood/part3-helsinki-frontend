@@ -95,15 +95,15 @@ const App = () => {
                             `Updated ${personObj.name}'s number`,
                             false
                         );
-                    })
-                    .catch((error) => {
-                        handleNotification(
-                            `Information of ${persons[index].name} has already been removed from server`,
-                            true
-                        );
-
-                        refreshPersons();
                     });
+            // .catch((error) => {
+            //     handleNotification(
+            //         `Information of ${persons[index].name} has already been removed from server`,
+            //         true
+            //     );
+
+            //     refreshPersons();
+            // });
 
             if (confirmed) {
                 setNewName("");
