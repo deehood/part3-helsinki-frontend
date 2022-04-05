@@ -81,7 +81,7 @@ const App = () => {
                     handleNotification(`Added ${personObj.name}`, false);
                 })
                 .catch((error) => {
-                    handleNotification(`${error}`, true);
+                    handleNotification(`${error.response.data.error}`, true);
                     refreshPersons();
                 });
 
