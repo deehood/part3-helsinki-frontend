@@ -4,8 +4,8 @@ body {
 }
 
 .message {
-    width: 50vw;
     position: absolute;
+    width: 35rem;
     top: 4rem;
     border-style: solid;
     padding: 0.5rem;

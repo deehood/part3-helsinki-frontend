@@ -42,8 +42,11 @@ const App = () => {
 
     const handleDelete = (id, name) => {
         const temp = persons.filter((person) => person.id !== id);
+
         handleNotification(`Deleted ${name} from phonebook`, false);
+
         setPersons(temp);
+        refreshPersons();
     };
 
     const handleChangeName = (event) => {
@@ -69,12 +72,18 @@ const App = () => {
         const index = persons.findIndex((x) => x.name === personObj.name);
 
         if (index === -1) {
-            // Person not found - create new record  - then get new id from axios returnPerson and send to state
-            personService.create(personObj).then((returnedPerson) => {
-                setPersons(persons.concat(returnedPerson));
+            // Person not found - create new record  - returnPerson and send to state
+            personService
+                .create(personObj)
+                .then((returnedPerson) => {
+                    setPersons(persons.concat(returnedPerson));
 
-                handleNotification(`Added ${personObj.name}`, false);
-            });
+                    handleNotification(`Added ${personObj.name}`, false);
+                })
+                .catch((error) => {
+                    handleNotification(`${error}`, true);
+                    // refreshPersons();
+                });
 
             setNewName("");
             setNewNumber("");
@@ -90,20 +99,20 @@ const App = () => {
                     .then((response) => {
                         const temp = [...persons];
                         temp[index].number = personObj.number;
+
                         setPersons(temp);
                         handleNotification(
                             `Updated ${personObj.name}'s number`,
                             false
                         );
+                    })
+                    .catch((error) => {
+                        handleNotification(
+                            `Information of ${persons[index].name} has already been removed from server`,
+                            true
+                        );
+                        refreshPersons();
                     });
-            // .catch((error) => {
-            //     handleNotification(
-            //         `Information of ${persons[index].name} has already been removed from server`,
-            //         true
-            //     );
-
-            //     refreshPersons();
-            // });
 
             if (confirmed) {
                 setNewName("");
