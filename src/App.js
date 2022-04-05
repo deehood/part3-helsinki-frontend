@@ -82,7 +82,7 @@ const App = () => {
                 })
                 .catch((error) => {
                     handleNotification(`${error}`, true);
-                    // refreshPersons();
+                    refreshPersons();
                 });
 
             setNewName("");
