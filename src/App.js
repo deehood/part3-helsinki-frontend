@@ -107,8 +107,10 @@ const App = () => {
                         );
                     })
                     .catch((error) => {
+                        console.log(error.response.data);
+
                         handleNotification(
-                            `Information of ${persons[index].name} has already been removed from server`,
+                            `${error.response.data.error} `,
                             true
                         );
                         refreshPersons();
